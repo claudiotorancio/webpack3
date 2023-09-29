@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon backend/index.js --ignore frontend",
     "test": "jest --verbose backend/routes --detectOpenHandles",
-    "build": "cross-env NODE_ENV=production node backend/index.js",
-    "postinstall": "npm run build",
+    "postinstall": "cross-env NODE_ENV=production node backend/index.js",
+    "build": "npm run build",
     "vercel-build": "cross-env NODE_ENV=production webpack",
     "server:dev": "webpack-dev-server"
   },
