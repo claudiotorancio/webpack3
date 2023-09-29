@@ -2,11 +2,11 @@
   "name": "webpack",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon backend/index.js --ignore frontend",
+    "dev": "cross-env NODE_ENV=development nodemon app.js --ignore frontend",
     "test": "jest --verbose backend/routes --detectOpenHandles",
-    "start": "cross-env NODE_ENV=production node backend/index.js",
+    "start": "cross-env NODE_ENV=production node app.js",
     "postinstall": "npm run build",
     "build": "cross-env NODE_ENV=production webpack",
     "server:dev": "webpack-dev-server"
@@ -26,6 +26,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "fs-extra": "^11.1.1",
+    "mongodb": "^6.1.0",
     "mongoose": "^7.5.0",
     "mongosh": "^2.0.0",
     "morgan": "^1.10.0",
