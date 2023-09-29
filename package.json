@@ -8,7 +8,7 @@
     "test": "jest --verbose backend/routes --detectOpenHandles",
    
     "postinstall": "npm run build",
-    "build": "cross-env NODE_ENV=production webpack && node backend/index.js",
+    "build": "cross-env NODE_ENV=production webpack && node backend/app.js",
     "server:dev": "webpack-dev-server"
   },
   "jest": {
