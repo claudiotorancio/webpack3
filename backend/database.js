@@ -1,7 +1,7 @@
 
 const { connect } = require("mongoose");
 
-const { MONGODB_URI } = require("../config.js");
+const { MONGODB_URI } = require("./config.js");
 
   (async () => {
     try {

@@ -1,7 +1,7 @@
 
 
 const app = require('./app.js')
-require('./backend/database.js')
+require('./database.js')
 const {PORT} = require('./config.js')
 
 //Server Starter
