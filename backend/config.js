@@ -3,7 +3,7 @@ const { config } = require("dotenv")
 config()
 
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/test";
+const MONGODB_URI = process.env.MONGODB_URI;
 
 const PORT = process.env.PORT || 3000;
 
