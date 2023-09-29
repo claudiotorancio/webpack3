@@ -9,7 +9,7 @@
     "start": "cross-env NODE_ENV=production node backend/index.js",
     "postinstall": "npm run build",
     "build": "cross-env NODE_ENV=production webpack",
-    "postbuild": " node backend/index.js",
+    "postbuild": "cross-env NODE_ENV=production node backend/index.js",
     "server:dev": "webpack-dev-server"
   },
   "jest": {
