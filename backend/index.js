@@ -1,58 +1,13 @@
 
 
-
-
-
-const express = require('express')
-const morgan = require('morgan')
-const multer = require('multer')
-const path = require('path')
-const cors = require('cors');
+const app = require('./app.js')
+require('./database.js')
 const {PORT} = require('./config.js')
 
-
-//initializacion
-const app = express()
-
-require('./database.js')
-
-//Settings
-
-
-
-
-//Middlewares
-app.use(morgan('dev'));
-
-const storage = multer.diskStorage({
-    destination: path.join(__dirname, 'backend/public/uploads'),
-    filename(req, file, cb) {
-        cb(null, new Date().getTime() + path.extname(file.originalname));
-    }
-});
-app.use(multer({storage}).single('image'));
-
-app.use(express.urlencoded({extended:false}));
-
-app.use(express.json());
-
-app.use(cors())
-
-
-app.use('/api/books', require('../api/books.js'))
-
-app.use((err, req, res, next) => {
-    console.error(err);
-    res.status(500).json({ error: 'Internal Server Error' });
-  });
-  
- 
-//Static files
-app.use(express.static(path.join(__dirname, 'backend', 'public')))
 
 //Server Starter
 app.listen(PORT);
     console.log('Server start',PORT);
    
-    module.exports = app;
+
   
