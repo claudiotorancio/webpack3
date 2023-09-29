@@ -6,8 +6,8 @@ const {PORT} = require('./config.js')
 
 
 //Server Starter
-app.listen(PORT);
-    console.log('Server start',PORT);
-   
+app.listen(PORT, () => {
+    console.log(`Server start on port${PORT}`);
+})
 
   
