@@ -37,7 +37,7 @@ app.use(express.json());
 app.use(cors())
 
 
-app.use('/api/books', require('./routes/books.js'))
+app.use('/api/books', require('../api/books.js'))
 
 app.use((err, req, res, next) => {
     console.error(err);

@@ -1,7 +1,7 @@
 const {unlink} = require('fs-extra')
 const path = require('path')
 
-const Book = require('../models/Book.js')
+const Book = require('../backend/models/Book.js')
 
 const renderAtBooks = async (req, res) => {
     const books = await Book.find()
