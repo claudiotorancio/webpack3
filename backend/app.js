@@ -20,7 +20,7 @@ const app = express()
 app.use(morgan('dev'));
 
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, 'backend/public/uploads'),
+    destination: path.join(__dirname, 'public/uploads'),
     filename(req, file, cb) {
         cb(null, new Date().getTime() + path.extname(file.originalname));
     }
@@ -43,6 +43,6 @@ app.use((err, req, res, next) => {
   
  
 //Static files
-app.use(express.static(path.join(__dirname, 'backend', 'public')))
+app.use(express.static(path.join(__dirname,  'public')))
 
 module.exports = app;
