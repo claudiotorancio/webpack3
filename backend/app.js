@@ -18,7 +18,7 @@ const app = express()
 app.use(morgan('dev'));
 
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, 'backend/public/uploads'),
+    destination: path.join(__dirname, 'public/uploads'),
     filename(req, file, cb) {
         cb(null, new Date().getTime() + path.extname(file.originalname));
     }
@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(cors())
 
 
-app.use('/api/books', require('./books.js'))
+app.use('/api/books', require('../api/books.js'))
 
 app.use((err, req, res, next) => {
     console.error(err);
@@ -41,6 +41,6 @@ app.use((err, req, res, next) => {
   
  
 //Static files
-app.use(express.static(path.join(__dirname, 'backend',  'public')))
+app.use(express.static(path.join(__dirname,  'public')))
 
 module.exports = app;

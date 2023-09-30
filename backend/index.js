@@ -1,8 +1,9 @@
 //index.js
 
 const app = require('./app.js')
-const {PORT} = require('./config.js')
-require('./database.js')
+const {PORT} = require('../api/config.js')
+require('../api/database.js')
+
 
 
 //Server Starter
