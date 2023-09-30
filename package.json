@@ -9,7 +9,7 @@
     
     "postinstall": "npm run build",
     "build": "cross-env NODE_ENV=production webpack",
-    "start": "npm instal --include=dev && cross-env NODE_ENV=production PORT=$PORT node backend/index.js",
+    "start": "npm install --include=dev --prefix backend/public && cross-env NODE_ENV=production PORT=$PORT node backend/index.js",
 
     "server:dev": "webpack-dev-server"
   },
