@@ -11,8 +11,6 @@ const cors = require('cors');
 //initializacion
 const app = express()
 
-
-
 //Sett
 
 
