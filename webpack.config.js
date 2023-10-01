@@ -12,7 +12,7 @@ module.exports = {
     
     entry: './frontend/app.js',
     output: {
-        path: path.join(__dirname, 'backend/public'),
+        path: path.join(__dirname, 'public'),
         filename: 'js/bundle.js' 
         },
         mode: 'production',
@@ -21,7 +21,7 @@ module.exports = {
             rules: [
                 {
                     test: /\.css/,
-                    exclude: /node_modules/,
+         
                     use:
                     
                     [
