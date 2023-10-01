@@ -1,6 +1,11 @@
 {
   "version": 2,
-  
+  "builds": [
+    {
+      "src": "/backend/public",
+      "use": "@vercel/node"
+    }
+  ], 
 
   "routes": [
     {
