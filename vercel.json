@@ -3,15 +3,17 @@
     { "src": "package.json", "use": "@vercel/static-build" },
     { "src": "package.json", "use": "@vercel/node" }
   ],
+  
+  "public": "dist",
 
   "routes": [
     {
       "src": "/", "dest": "index.js"},
     {
-      "src": "/api/books", "methods": ["GET"],"dest": "api/enrutador.js"},
+      "src": "/api/books", "methods": ["GET"],"dest": "api/books.js"},
     {
-      "src": "/api/books","methods": ["POST"],"dest": "api/enrutador.js"},
+      "src": "/api/books","methods": ["POST"],"dest": "api/books.js"},
       {
-      "src": "/api/books","methods": ["DELETE"],"dest": "api/enrutador.js"}
+      "src": "/api/books","methods": ["DELETE"],"dest": "api/books.js"}
   ]
 }
