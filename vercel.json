@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.js",
+      "src": "/api/books.js",
       "use": "@vercel/node"
     }
   ], 
@@ -19,7 +19,7 @@
         "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
       },
       "src": "/(.*)",
-      "dest": "/backend/public/"
+      "dest": "/backend/"
     }
   ]
 }
