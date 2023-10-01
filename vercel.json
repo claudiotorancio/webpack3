@@ -1,17 +1,21 @@
 {
-
+  "version": 2,
+  "name": "petgram-TU_NOMBRE",
+  "builds": [
+      { "use": "@vercel/static-build", "src": "package.json"}
+  ],
   "routes": [
-    {
-      "src": "/", "dest": "backend/index.js"
-    },
-    {
-      "src": "/api/books", "methods": ["GET"],"dest": "backend/api/books.js"
-    },
-    {
-      "src": "/api/books", "methods": ["POST"],"dest": "backend/api/books.js"
-    },
-    {
-      "src": "/api/books", "methods": ["DELETE"],"dest": "backend/api/books.js"
-    }
+      {
+          "src": "(.*).js",
+          "dest": "/$1.js"            
+      },
+      {
+          "src": "(.*).json",
+          "dest": "/$1.json"            
+      },
+      {
+          "src": "/.*",
+          "dest": "index.html"
+      }
   ]
-}
+} 
