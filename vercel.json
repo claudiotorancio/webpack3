@@ -1,10 +1,7 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "./frontend",
-      "use": "@vercel/static-build"
-    },
+  
     {
       "src": "./backend",
       "use": "@vercel/node"
@@ -22,7 +19,7 @@
         "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
       },
       "src": "/(.*)",
-      "dest": "/backend/"
+      "dest": "/backend/index.js"
     }
   ]
 }
