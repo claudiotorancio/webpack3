@@ -7,8 +7,8 @@ require('./database.js')
 
 
 //Server Starter
+console.log('Antes de iniciar el servidor...');
 app.listen(PORT, () => {
-    console.log('Antes de iniciar el servidor...');
     console.log('Server start on port', PORT);
 })
 
