@@ -12,7 +12,7 @@ module.exports = {
     
     entry: './frontend/app.js',
     output: {
-        path: path.join(__dirname, 'public'),
+        path: path.join(__dirname, 'backend/public'),
         filename: 'js/bundle.js' 
         },
         mode: 'production',
@@ -21,14 +21,9 @@ module.exports = {
             rules: [
                 {
                     test: /\.css/,
-         
-                    use:
-                    
-                    [
-                        
+                    use: [
                         devMode ? 'style-loader': MiniCssExtractPlugin.loader,
                         'css-loader'
-                        
                     ]
                 }
             ]
