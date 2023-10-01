@@ -1,7 +1,7 @@
 {
   "builds": [
-    { "src": "package.json", "use": "@vercel/static-build" },
-    { "src": "package.json", "use": "@vercel/node" }
+    { "src": "frontend/package.json", "use": "@vercel/static-build" },
+    { "src": "backend/package.json", "use": "@vercel/node" }
   ],
   "routes": [
     {
@@ -17,5 +17,5 @@
       "src": "/api/books", "methods": ["DELETE"],"dest": "backend/api/books.js"
     }
   ],
-  "public": "backend/public"
+  "public": true
 }
