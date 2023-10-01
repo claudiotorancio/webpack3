@@ -7,8 +7,8 @@
     "dev": "cross-env NODE_ENV=development nodemon backend/index.js --exec babel-node",
     "test": "jest --verbose backend/routes --detectOpenHandles",
     "start": "cross-env NODE_ENV=production node backend/index.js",
-    "postinstall": " cross-env NODE_ENV=production webpack",
-    "build": " npm run build --output backend/public",
+    "postinstall": "npm run build --output backend/public",
+    "build": "cross-env NODE_ENV=production webpack --output backend/public ",
     
     "server:dev": "webpack-dev-server"
   },
