@@ -18,6 +18,6 @@
     }
   ],
   "public": {
-    "output": "backend/public"
+    "output": true
   }
 }
