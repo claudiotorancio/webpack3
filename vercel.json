@@ -1,6 +1,11 @@
 {
   "version": 2,
- 
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ], 
 
   "routes": [
     {
@@ -13,8 +18,8 @@
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
       },
-      "src": "/.*",
-      "dest": "index.js"
+      "src": "/(.*)",
+      "dest": "/backend/"
     }
   ]
 }
