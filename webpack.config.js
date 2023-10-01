@@ -21,9 +21,14 @@ module.exports = {
             rules: [
                 {
                     test: /\.css/,
-                    use: [
+                    exclude: /node_modules/,
+                    use:
+                    
+                    [
+                        
                         devMode ? 'style-loader': MiniCssExtractPlugin.loader,
                         'css-loader'
+                        
                     ]
                 }
             ]
