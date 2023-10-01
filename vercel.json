@@ -16,5 +16,5 @@
       {
       "src": "/api/books","methods": ["DELETE"],"dest": "api/books.js"}
   ],
-  "public": "dist"
+  "public": "backend/public"
 }
