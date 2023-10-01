@@ -2,11 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "./backend/index.js",
+      "src": "./frontend",
+      "use": "@vercel/static-build"
+    },
+    {
+      "src": "./backend",
       "use": "@vercel/node"
     }
-  ], 
-
+  ],
   "routes": [
     {
       "src": "/api/books",
