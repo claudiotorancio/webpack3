@@ -1,48 +1,37 @@
-
-//app.js
-
-const express = require('express')
-const morgan = require('morgan')
-const multer = require('multer')
-const path = require('path')
+const express = require('express');
+const morgan = require('morgan');
+const multer = require('multer');
+const path = require('path');
 const cors = require('cors');
-const routes = require('../api/books') 
+const routes = require('../api/books');
 
+const app = express();
 
-//initializacion
-const app = express()
-
-//Sett
-
-
-//Middlewares
+// Middlewares
 app.use(morgan('dev'));
 
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, 'public/uploads'),
-    filename(req, file, cb) {
-        cb(null, new Date().getTime() + path.extname(file.originalname));
-    }
+  destination: path.join(__dirname, 'public/uploads'),
+  filename(req, file, cb) {
+    cb(null, new Date().getTime() + path.extname(file.originalname));
+  },
 });
-app.use(multer({storage}).single('image'));
 
-app.use(express.urlencoded({extended:false}));
-
+app.use(multer({ storage }).single('image'));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
 
-app.use(cors())
-
-
-
-
+// Manejo de errores
 app.use((err, req, res, next) => {
-    console.error(err);
-    res.status(500).json({ error: 'Internal Server Error' });
-  });
-  
-  app.use(routes)
+  console.error(err);
+  res.status(500).json({ error: 'Error interno del servidor' });
+});
 
-//Static files
-app.use(express.static(path.join(__dirname,'public')))
+// Rutas
+app.use(routes);
+
+// Archivos estáticos
+app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
