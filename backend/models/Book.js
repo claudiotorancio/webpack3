@@ -7,6 +7,9 @@ const BookSchema = new Schema ({
     isbn:{type: String},
     imagePath: {type: String},
     created_at: {type: Date, default:Date.now}
+},{
+    timestamps: true,
+    versionKey: false
 });
 
 module.exports = model('Book', BookSchema)

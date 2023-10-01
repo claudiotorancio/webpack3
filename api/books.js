@@ -5,11 +5,11 @@ const router = Router();
 
 const { renderAtBooks, createBooks, deleteBooks } = require('./controllers.js')
 
-router.get('/', renderAtBooks);
+router.get('/api/books', renderAtBooks);
 
-router.post('/', createBooks);
+router.post('/api/books', createBooks);
 
-router.delete('/:id', deleteBooks);
+router.delete('/api/books/:id', deleteBooks);
 
 
 module.exports = router;

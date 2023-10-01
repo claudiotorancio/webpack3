@@ -1,14 +1,14 @@
 //index.js
 
+const {PORT} = require('./config.js')
 const app = require('./app.js')
-const {PORT} = require('../api/config.js')
-require('../api/database.js')
+require('./database.js')
 
 
 
 //Server Starter
 app.listen(PORT, () => {
-    console.log(`Server start on port${PORT}`);
+    console.log('Server start on port', PORT);
 })
 
   

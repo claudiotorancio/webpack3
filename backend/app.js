@@ -6,6 +6,7 @@ const morgan = require('morgan')
 const multer = require('multer')
 const path = require('path')
 const cors = require('cors');
+const routes = require('../api/books') 
 
 
 //initializacion
@@ -32,15 +33,16 @@ app.use(express.json());
 app.use(cors())
 
 
-app.use('/api/books', require('../api/books.js'))
+
 
 app.use((err, req, res, next) => {
     console.error(err);
     res.status(500).json({ error: 'Internal Server Error' });
   });
   
- 
+  app.use(routes)
+
 //Static files
-app.use(express.static(path.join(__dirname,  'public')))
+app.use(express.static(path.join(__dirname,'public')))
 
 module.exports = app;
