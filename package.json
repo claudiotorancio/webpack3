@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon backend/index.js --exec babel-node",
+    "dev": "cross-env NODE_ENV=development nodemon backend/index.js",
     "test": "jest --verbose backend/routes --detectOpenHandles",
     "start": "npm run postinstall && npm run build && cross-env NODE_ENV=production node backend/index.js",
     "postinstall": "npm run build",
