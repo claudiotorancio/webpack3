@@ -12,6 +12,6 @@ async function main() {
         console.log('Server start on port', PORT);
     }
 
-main()
+main();
 
   
