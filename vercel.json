@@ -4,18 +4,22 @@
   
     "builds": [
       {
-        "src": "backend/index.js", 
-        "use": "@vercel/node", 
+        "src": "frontend", 
+        "use": "@vercel/static-build", 
         "config": {
-          "buildCommand": "npm run start" 
+          "buildCommand": "npm run build" 
         }
+      },
+      {
+        "src": "backend/index.js", 
+        "use": "@vercel/node" 
       }
     ],
   
   "routes": [
     {
-      "src": "/backend/public",
-      "dest": "backend/index.js"
+      "src": "/api/books",
+      "dest": "api/books.js"
     },
     {
       "headers": {
