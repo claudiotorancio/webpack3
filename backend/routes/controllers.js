@@ -1,7 +1,7 @@
 const {unlink} = require('fs-extra')
 const path = require('path')
 
-const Book = require('../backend/models/Book.js')
+const Book = require('../models/Book.js')
 
 const renderAtBooks = async (req, res) => {
     const books = await Book.find()
@@ -22,7 +22,7 @@ const createBooks = async (req, res) => {
 
 const deleteBooks = async (req, res) => {
     const book = await Book.findByIdAndDelete(req.params.id)
-    unlink(path.resolve('./backend/public' + book.imagePath))
+    unlink(path.resolve('/public' + book.imagePath))
     res.json({message:'Book deleted'})
 }
 
