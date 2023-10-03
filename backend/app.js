@@ -3,10 +3,7 @@ const morgan = require('morgan');
 const multer = require('multer');
 const path = require('path');
 const cors = require('cors');
-const routes = require('./routes/books');
-const {PORT} = require('./config.js')
-
-require('./database.js')
+const routes = require('../api/books');
 
 const app = express();
 
@@ -36,12 +33,5 @@ app.use(routes);
 
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, 'backend', 'public')));
-
-
-
-
-//Server Starter
-app.listen(PORT);
-        console.log('Server start on port', PORT);
 
 module.exports = app;

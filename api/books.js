@@ -3,7 +3,7 @@
 const { Router } = require('express')
 const router = Router();
 
-const { renderAtBooks, createBooks, deleteBooks } = require('./controllers.js')
+const { renderAtBooks, createBooks, deleteBooks } = require('../backend/routes/controllers.js')
 
 router.get('/api/books', renderAtBooks);
 

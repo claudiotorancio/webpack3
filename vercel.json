@@ -5,6 +5,10 @@
   
   "routes": [
     {
+      "src": "/", "dest": "backend/index.js"},
+      {
+        "src": "/api/books", "dest": "api/books.js"},
+    {
       "src": "/(.*)",
       "dest": "/"
     }
