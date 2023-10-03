@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon backend/index.js --exec babel-node",
     "test": "jest --verbose backend/routes --detectOpenHandles",
-    "start": "npm install && npm run build && cross-env NODE_ENV=production node backend/index.js",
+    "start": "cross-env NODE_ENV=production node backend/index.js",
     "postinstall": "npm run build  ",
-    "build": "cross-env NODE_ENV=production webpack  ",
-    "postbuild":  "npm install && cross-env NODE_ENV=production node backend/index.js",
-    
-    
+    "build": "cross-env NODE_ENV=production webpack && npm run start  ",
     "server:dev": "webpack-dev-server"
   },
   "jest": {
@@ -30,7 +30,8 @@
     "mongoose": "^7.5.0",
     "mongosh": "^2.0.0",
     "morgan": "^1.10.0",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "vercel": "^32.3.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.0",
