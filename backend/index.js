@@ -7,11 +7,8 @@ require('./database.js')
 
 
 //Server Starter
-async function main(){
-    await app.listen(PORT);
+app.listen(PORT);
         console.log('Server start on port', PORT);
-    }
 
-main();
 
   
