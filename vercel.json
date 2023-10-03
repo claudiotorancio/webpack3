@@ -5,6 +5,10 @@
     {
       "src": "./backend/index.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "./backend/public/**/*",
+      "use": "@vercel/webpack"
     }
   ],
   "routes": [
