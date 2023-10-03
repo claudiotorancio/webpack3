@@ -9,7 +9,7 @@
     "start": "npm install && npm run build && cross-env NODE_ENV=production node backend/index.js",
     "postinstall": "npm run build  ",
     "build": "cross-env NODE_ENV=production webpack  ",
-    "postbuild": "&& cross-env NODE_ENV=production node backend/index.js",
+    "postbuild": "ross-env NODE_ENV=production node backend/index.js",
     
     
     "server:dev": "webpack-dev-server"
