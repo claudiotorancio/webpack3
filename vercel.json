@@ -7,11 +7,7 @@
     {
       "src": "/api/books", "dest": "backend/index.js"},
       {
-        "src": "/api/books", "methods": ["GET"],"dest": "api/books.js"},
-      {
-        "src": "/api/books","methods": ["POST"],"dest": "api/books.js"},
-        {
-          "src": "/api/books","methods": ["DELETE"],"dest": "api/books.js"}
+        "src": "/api/books", "dest": "api/books.js"}
   
    
   ]
