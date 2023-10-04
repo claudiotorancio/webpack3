@@ -7,8 +7,8 @@
     "dev": "cross-env NODE_ENV=development nodemon backend/index.js",
     "test": "jest --verbose backend/routes --detectOpenHandles",
     "start": "cross-env NODE_ENV=production node backend/index.js",
-    "postinstall": "cross-env NODE_ENV=production webpack && npm run build",
-    "build": "npm run start",
+    "postinstall": "npm run build",
+    "build": "cross-env NODE_ENV=production webpack",
     "server:dev": "webpack-dev-server"
   },
   "jest": {
