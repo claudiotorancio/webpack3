@@ -24,7 +24,7 @@ const renderAllBooks = async (req, res) => {
 const createBook = async (req, res) => {
   try {
     const { title, author, isbn } = req.body;
-    const imagePath = '/uploads/' + req.file.filename;
+    const imagePath = '/uploads/' + req.file;
 
     // Conexión a la base de datos
     await mongoose.connect(MONGODB_URI, {
