@@ -1,7 +1,6 @@
 require('dotenv').config();
 
-const { unlink } = require('fs-extra');
-const path = require('path');
+
 const mongoose = require('mongoose');
 const config = require('../config'); 
 const Book = require('../backend/models/Book.js');
