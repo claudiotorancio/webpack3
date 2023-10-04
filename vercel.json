@@ -7,10 +7,10 @@
     {
       "src": "/", "dest": "backend/index.js"},
       {
-        "src": "/api/books", "methods": ["GET"],"dest": "api/books.js"},
+        "src": "/api/renderAllBooks", "methods": ["GET"],"dest": "api/enrutador.js"},
       {
-        "src": "/api/books","methods": ["POST"],"dest": "api/books.js"},
+        "src": "/api/createBook","methods": ["POST"],"dest": "api/enrutador.js"},
         {
-          "src": "/api/books","methods": ["DELETE"],"dest": "api/books.js"}
+          "src": "/api/deleteBook","methods": ["DELETE"],"dest": "api/enrutador.js"}
   ]
 }
