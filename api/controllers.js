@@ -11,7 +11,10 @@ const Book = require('../backend/models/Book.js');
 const renderAllBooks = async (req, res) => {
   try {
     // Conexión a la base de datos
-    await mongoose.connect(config.MONGODB_URI)
+    await mongoose.connect(config.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     const books = await Book.find();
     res.json(books);
   } catch (error) {
