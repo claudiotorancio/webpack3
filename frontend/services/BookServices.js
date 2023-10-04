@@ -13,15 +13,22 @@ class BookService {
         const books = await res.json();
         return books
     }
+
+    
     async postBook(book) {
         const URI = `${this.baseURI}/createBook`;
         const res = await fetch(URI, {
             method: 'POST',
-            body: book,
+            headers: {
+                'Content-Type': 'application/json',
+              },
+            body: JSON.stringify(book),
         });
         const data = await res.json();
         console.log(data)
     }
+
+
     async deleteBook(bookId) {
         const URI = `${this.baseURI}/deleteBook/${bookId}`;
         const res = await fetch(URI, {
