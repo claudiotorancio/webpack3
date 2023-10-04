@@ -13,8 +13,7 @@ module.exports = {
     entry: './frontend/app.js',
     output: {
         path: path.join(__dirname, 'backend/public'),
-        filename: 'js/bundle.js',
-        path: path.join(__dirname, 'backend/public/uploads'),
+        filename: 'js/bundle.js'
         },
         mode: 'production',
 
