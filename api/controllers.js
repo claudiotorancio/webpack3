@@ -1,8 +1,8 @@
 const { unlink } = require('fs-extra');
 const path = require('path');
 const mongoose = require('mongoose');
-const { MONGODB_URI } = require('../config'); 
-const Book = require('../models/Book.js');
+const { MONGODB_URI } = require('../backend/config'); 
+const Book = require('../backend/models/Book.js');
 
 
 

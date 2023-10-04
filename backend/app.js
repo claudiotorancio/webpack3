@@ -29,7 +29,7 @@ app.use((err, req, res, next) => {
 });
 
 // Rutas
-app.use('/api/books', require('../api/books.js'));
+app.use(require('../api/books.js'));
 
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
