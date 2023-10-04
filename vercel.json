@@ -11,11 +11,6 @@
       {
         "src": "/api/books","methods": ["POST"],"dest": "api/books.js"},
         {
-          "src": "/api/books","methods": ["DELETE"],"dest": "api/books.js"},
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
-   
+          "src": "/api/books","methods": ["DELETE"],"dest": "api/books.js"}
   ]
 }
