@@ -32,6 +32,6 @@ app.use((err, req, res, next) => {
 app.use(routes);
 
 // Archivos estáticos
-app.use(express.static(path.join(__dirname, 'backend', 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;

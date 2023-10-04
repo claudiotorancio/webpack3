@@ -22,7 +22,7 @@ const createBooks = async (req, res) => {
 
 const deleteBooks = async (req, res) => {
     const book = await Book.findByIdAndDelete(req.params.id)
-    unlink(path.resolve('/public' + book.imagePath))
+    unlink(path.resolve('./backend/public' + book.imagePath))
     res.json({message:'Book deleted'})
 }
 

@@ -1,46 +1,30 @@
-const { MongoClient } = require('mongodb');
+
+
+
+
+const { connect} = require("mongoose");
+
 const { MONGODB_URI } = require("./config.js");
 
 
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+};
 
-// URL de conexión a tu base de datos MongoDB
-const mongoURI = 'mongodb://localhost:27017/tu_basededatos';
-
-async function connectToDatabase() {
+(async () => {
   try {
-    const client = new MongoClient(MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const db = await connect(MONGODB_URI, options);
 
-    // Conectar a la base de datos de forma asincrónica
-    await client.connect();
+    console.log('DB is connected to', db.connection.name);
 
-    console.log('Conexión a MongoDB exitosa');
 
-    // Realiza aquí las operaciones de MongoDB que necesites
+  } catch (err) {
 
-    // Finaliza la conexión y cierra el cliente
-    await client.close();
-    
-    console.log('Conexión cerrada');
+    console.error(err);
 
-    return true; // Indica que la conexión fue exitosa
-  } catch (error) {
-    console.error('Error al conectar a MongoDB:', error);
-    return false; // Indica que hubo un error en la conexión
+
   }
-}
 
-// Llama a la función de conexión
-connectToDatabase()
-  .then((success) => {
-    if (success) {
-      console.log('La conexión a MongoDB se realizó con éxito.');
-    } else {
-      console.log('La conexión a MongoDB falló.');
-    }
-  })
-  .catch((error) => {
-    console.error('Error en la promesa de conexión:', error);
-  });
+})();
+

@@ -8,5 +8,5 @@ const {startServer} = require('./database.js')
 app.listen(PORT);
         console.log('Server start on port', PORT);
 
-startServer
+
   
