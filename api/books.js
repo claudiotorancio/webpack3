@@ -1,15 +1,15 @@
 //routes/books.js
 
-const { Router } = require('express')
-const router = Router();
+const express = require('express');
+const router = express.Router();
 
-const { renderAtBooks, createBooks, deleteBooks } = require('../backend/routes/controllers.js')
+const {renderAllBooks, createBook, deleteBook} = require('../backend/routes/controllers.js')
 
-router.get('/api/books', renderAtBooks);
+router.get('/', renderAllBooks);
 
-router.post('/api/books', createBooks);
+router.post('/', createBook);
 
-router.delete('/api/books/:id', deleteBooks);
+router.delete('/:id', deleteBook);
 
 
 module.exports = router;

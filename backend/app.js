@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const multer = require('multer');
 const path = require('path');
 const cors = require('cors');
-const routes = require('../api/books');
+
 
 const app = express();
 
@@ -29,7 +29,7 @@ app.use((err, req, res, next) => {
 });
 
 // Rutas
-app.use(routes);
+app.use('/api/books', require('../api/books.js'));
 
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));

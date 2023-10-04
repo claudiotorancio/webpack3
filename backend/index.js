@@ -2,7 +2,7 @@
 
 const {PORT} = require('./config.js')
 const app = require('./app.js')
-const {startServer} = require('./database.js')
+
 
 //Server Starter
 app.listen(PORT);
