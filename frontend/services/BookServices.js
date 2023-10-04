@@ -7,9 +7,9 @@ class BookService {
     }
 
     async getBooks() {
-        const response = await fetch(this.URI);
-        console.log(response)
-        const books = await response.json();
+        const res = await fetch(this.URI);
+        console.log(res)
+        const books = await res.json();
         return books
     }
     async postBook(book) {
