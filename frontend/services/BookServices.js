@@ -33,7 +33,10 @@ class BookService {
         const URI = `${this.baseURI}/deleteBook/${bookId}`;
         const res = await fetch(URI, {
             method: 'DELETE',
-           
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(bookId),
         });
         const data = await res.json();
         console.log(data);
