@@ -3,7 +3,7 @@
 let config;
 
 if(process.env.NODE_ENV === 'production') {
-    config = process.env.MONGODB_URI
+    config = require('./prod.js')
 } else{
     config = require('./dev.js')
 }
