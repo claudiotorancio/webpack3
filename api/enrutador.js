@@ -10,11 +10,11 @@ const {cutBook} = require('./cutBook');
 
 
 
-router.get('/api/renderAllbooks', renderAllbooks);
+router.get('/renderAllbooks', renderAllbooks);
 
-router.post('/api/createBook', createBook);
+router.post('/createBook', createBook);
 
-router.delete('/api/cutBook/:id', cutBook);
+router.delete('/cutBook/:id', cutBook);
 
 
 module.exports = router;
