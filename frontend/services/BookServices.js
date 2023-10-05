@@ -19,6 +19,7 @@ class BookService {
             headers: {
                 'Content-type': 'application/json'
             },
+          
           body: JSON.stringify(book)
           
         })
@@ -31,8 +32,11 @@ class BookService {
     async deleteBook(bookId) {
         const URI = `${this.baseURI}/cutBook/${bookId}`;
         const res = await fetch(URI, {
-        
             method: 'DELETE',
+            headers: {
+                'Content-type': 'application/json'
+            },
+        
         });
         const data = await res.json();
         console.log(data);
