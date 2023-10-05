@@ -7,8 +7,6 @@
     {
       "src": "/", "dest": "backend/index.js"},
       {
-        "src": "/api/cutBook/:_id","methods": ["DELETE"],"dest": "api/enrutador.js"},
-      {
         "src": "/api/renderAllbooks", "methods": ["GET"],"dest": "api/enrutador.js"},
       {
         "src": "/api/createBook","methods": ["POST"],"dest": "api/enrutador.js"}
