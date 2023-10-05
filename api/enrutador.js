@@ -14,7 +14,7 @@ router.get('/api/renderAllbooks', renderAllbooks);
 
 router.post('/api/createBook', createBook);
 
-router.delete('/api/cutBook/:id', cutBook);
+router.post('/api/cutBook/:id', cutBook);
 
 
 module.exports = router;
