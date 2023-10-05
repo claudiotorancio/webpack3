@@ -11,6 +11,6 @@
       {
         "src": "/api/createBook","methods": ["POST"],"dest": "api/enrutador.js"},
         {
-          "src": "/api/cutBook","methods": ["DELETE"],"dest": "api/enrutador.js"}
+          "src": "/api/cutBook/id","methods": ["DELETE"],"dest": "api/enrutador.js"}
   ]
 }
