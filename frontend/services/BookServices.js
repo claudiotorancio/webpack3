@@ -30,17 +30,27 @@ class BookService {
     }
 
     async deleteBook(bookId) {
-        const URI = `${this.baseURI}/cutBook/${bookId}`;
-        const res = await fetch(URI, {
+        try {
+          const URI = `${this.baseURI}/cutBook/${bookId}`;
+          const response = await fetch(URI, {
             method: 'DELETE',
             headers: {
-                'Content-type': 'application/json'
-            }
-        });
-        const data = await res.json();
-        console.log(data);
+              'Content-type': 'application/json',
+            },
+          });
+    
+          if (!response.ok) {
+            throw new Error('Failed to delete book');
+          }
+    
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error(error);
+          throw error; // Re-lanzamos el error para que el controlador de la aplicación lo maneje
+        }
+      }
     }
-}
 
 export default BookService;
 

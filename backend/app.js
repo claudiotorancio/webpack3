@@ -23,7 +23,7 @@ app.use((err, req, res, next) => {
 });
 
 // Rutas
-app.use(require('../api/enrutador.js'));
+app.use('/', require('../api/enrutador.js'));
 
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
