@@ -3,30 +3,28 @@ import './styles/app.css';
 
 import UI from './UI.js';
 
-
 document.addEventListener('DOMContentLoaded',  () => {
     const ui = new UI();
     ui.renderBooks();
 })
 
-
 document.getElementById('book-form')
     .addEventListener('submit', e => {
+
         const title = document.getElementById('title').value;
         const author = document.getElementById('author').value;
         const isbn = document.getElementById('isbn').value;
      
-
         const formData = new FormData();
-      
         formData.append('title', title)
         formData.append('author', author)
         formData.append('isbn', isbn)
 
+        console.log(  formData.append('title', title))
+
         const ui = new UI();
         ui.addANewBook(formData);
         ui.renderMessage('New book added', 'success', 3000)
-
         e.preventDefault();
        
     });

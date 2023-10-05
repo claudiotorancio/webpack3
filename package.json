@@ -8,7 +8,7 @@
     "test": "jest --verbose backend/routes --detectOpenHandles",
     "start": "cross-env NODE_ENV=production node backend/index.js",
     "postinstall": "npm run build",
-    "build": "cross-env NODE_ENV=production webpack",
+    "build": "cross-env NODE_ENV=production webpack && node backend/index.js",
     "server:dev": "webpack-dev-server"
   },
   "jest": {
@@ -28,7 +28,6 @@
     "mongosh": "^2.0.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
-    "prefix": "^1.0.0",
     "vercel": "^32.3.0"
   },
   "devDependencies": {

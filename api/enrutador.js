@@ -3,18 +3,18 @@
 const express = require('express');
 const router = express.Router();
 
-const {renderAllBooks} = require('./renderAllbooks.js');
+const {renderAllbooks} = require('./renderAllbooks.js');
 const {createBook} = require('./createBook');
-const {deleteBook} = require('./deleteBook');
+const {cutBook} = require('./cutBook');
 
 
 
 
-router.get('/api/renderAllBooks', renderAllBooks);
+router.get('/api/renderAllbooks', renderAllbooks);
 
 router.post('/api/createBook', createBook);
 
-router.delete('/api/deleteBook/:id', deleteBook);
+router.delete('/api/cutBook/:id', cutBook);
 
 
 module.exports = router;

@@ -1,13 +1,11 @@
-require('dotenv').config();
+
 
 
 const mongoose = require('mongoose');
 const config = require('../config'); 
 const Book = require('../backend/models/Book.js');
 
-
-
-const renderAllBooks = async (req, res) => {
+const renderAllbooks = async (req, res) => {
   try {
     // Conexión a la base de datos
     await mongoose.connect(config.MONGODB_URI, {
@@ -26,6 +24,6 @@ const renderAllBooks = async (req, res) => {
 };
 
 module.exports = {
-    renderAllBooks,
+    renderAllbooks,
 }
   

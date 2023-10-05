@@ -1,4 +1,3 @@
-require('dotenv').config();
 
 
 const mongoose = require('mongoose');
@@ -6,7 +5,7 @@ const config = require('../config');
 const Book = require('../backend/models/Book.js');
 
 
-const deleteBook = async (req, res) => {
+const cutBook = async (req, res) => {
   try {
     // Conexión a la base de datos
     await mongoose.connect(config.MONGODB_URI, {
@@ -14,7 +13,7 @@ const deleteBook = async (req, res) => {
       useUnifiedTopology: true,
     });
 
-    const book = await Book.findByIdAndDelete(req.params.id);
+    await Book.findByIdAndDelete(req.params.id);
    
     res.json({ message: 'Book deleted' });
   } catch (error) {
@@ -27,5 +26,5 @@ const deleteBook = async (req, res) => {
 };
 
 module.exports = {
-  deleteBook,
+  cutBook,
 };
