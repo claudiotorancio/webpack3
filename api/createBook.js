@@ -1,7 +1,7 @@
 
 
 import mongoose from 'mongoose';
-import config from '../config/index.js';
+import MONGODB_URI from '../backend/config.js';
 import Book from '../backend/models/Book.js';
 
 
@@ -11,7 +11,7 @@ export const createBook = async (req, res) => {
     
      
       // Conexión a la base de datos
-      await mongoose.connect(config.MONGODB_URI, {
+      await mongoose.connect(MONGODB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       });
