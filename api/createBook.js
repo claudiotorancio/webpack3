@@ -1,14 +1,12 @@
 
 
-
-
-const mongoose = require('mongoose');
-const config = require('../config'); 
-const Book = require('../backend/models/Book.js');
+import mongoose from 'mongoose';
+import config from '../config/index.js';
+import Book from '../backend/models/Book.js';
 
 
 
-const createBook = async (req, res) => {
+export const createBook = async (req, res) => {
     try {
     
      
@@ -17,9 +15,8 @@ const createBook = async (req, res) => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       });
-      const { title, author, isbn } = req.body;
-      console.log(req.body)
-  
+   
+      const {title, author, isbn } = req.body;
       const newBook = new Book ({ title, author, isbn });
       console.log(newBook)
       await newBook.save();
@@ -33,8 +30,4 @@ const createBook = async (req, res) => {
     }
   };
 
-
-  module.exports = {
-   createBook
-  };
   

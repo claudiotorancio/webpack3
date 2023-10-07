@@ -1,20 +1,27 @@
+//index.js
 
-require('dotenv').config();
+import { config } from 'dotenv';
+config()
 
-const express = require('express');
-const morgan = require('morgan');
+import { fileURLToPath } from 'url';
+import path from 'path';
+import express, { urlencoded, json } from 'express';
+import morgan from 'morgan';
+import cors from 'cors';
+import router from '../api/enrutador.js';
 
-const path = require('path');
-const cors = require('cors');
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const outputPath = path.join(__dirname, 'public');
 
 const app = express();
 
 // Middlewares
 app.use(morgan('dev'));
-app.use(express.urlencoded({ extended: false }));
+app.use(urlencoded({ extended: false }));
 app.use(cors());
-app.use(express.json());
+app.use(json());
 
 // Manejo de errores
 app.use((err, req, res, next) => {
@@ -23,9 +30,9 @@ app.use((err, req, res, next) => {
 });
 
 // Rutas
-app.use('/', require('../api/enrutador.js'));
+app.use(`/`, router);
 
 // Archivos estáticos
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(outputPath));
 
-module.exports = app;
+export default app;

@@ -1,40 +1,34 @@
-
 import './styles/app.css';
 
-import UI from './UI.js';
+import { addANewBook, clearBookForm, deleteBookHandler, renderBooks, renderMessage } from './UI.js';
 
-document.addEventListener('DOMContentLoaded',  () => {
-    const ui = new UI();
-    ui.renderBooks();
-})
+document.addEventListener('DOMContentLoaded', () => {
+  renderBooks();
+});
 
-document.getElementById('book-form')
-    .addEventListener('submit', e => {
+document.getElementById('book-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-        const title = document.getElementById('title').value;
-        const author = document.getElementById('author').value;
-        const isbn = document.getElementById('isbn').value;
-     
-        const formData = new FormData();
-        formData.append('title', title)
-        formData.append('author', author)
-        formData.append('isbn', isbn)
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const isbn = document.getElementById('isbn').value;
 
-        console.log(  formData.append('title', title))
+  const formData = new FormData();
+  formData.append('title', title);
+  formData.append('author', author);
+  formData.append('isbn', isbn);
 
-        const ui = new UI();
-        ui.addANewBook(formData);
-        ui.renderMessage('New book added', 'success', 3000)
-        e.preventDefault();
-       
-    });
+  await addANewBook(formData);
+  renderMessage('New book added', 'success', 3000);
+  clearBookForm();
+});
 
-    document.getElementById('books-cards')
-    .addEventListener('click', e => {
-        if(e.target.classList.contains('delete')) {
-           const ui = new UI();
-           ui.deleteBook(e.target.getAttribute('_id'));
-           ui.renderMessage('Libro borrado', 'danger', 2000)
-        }
-        e.preventDefault();
-    })
+document.getElementById('books-cards').addEventListener('click', (e) => {
+  e.preventDefault();
+
+  if (e.target.classList.contains('delete')) {
+    const bookId = e.target.getAttribute('_id');
+    deleteBookHandler(bookId);
+    renderMessage('Libro borrado', 'danger', 2000);
+  }
+});

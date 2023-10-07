@@ -1,11 +1,6 @@
+import prodConfig from './prod.js';
+import devConfig from './dev.js';
 
+const config = process.env.NODE_ENV === 'production' ? prodConfig : devConfig;
 
-let config;
-
-if(process.env.NODE_ENV === 'production') {
-    config = require('./prod.js')
-} else{
-    config = require('./dev.js')
-}
-
-module.exports = config;
+export default config;

@@ -1,11 +1,11 @@
 // cutBook.js
 
-const mongoose = require('mongoose');
-const config = require('../config'); 
-const Book = require('../backend/models/Book.js');
 
+import mongoose from 'mongoose';
+import config from '../config/index.js';
+import Book from '../backend/models/Book.js';
 
-const cutBook = async (req, res) => {
+export const cutBook = async (req, res) => {
   try {
     // Conexión a la base de datos
     await mongoose.connect(config.MONGODB_URI, {
@@ -13,18 +13,23 @@ const cutBook = async (req, res) => {
       useUnifiedTopology: true,
     });
 
-    await Book.findByIdAndDelete(req.params.id);
-   
+    const bookId = req.params.id; // Corregí la variable a minúsculas, concuerda con la que se utiliza en el findByIdAndDelete
+
+    // Utilizamos findByIdAndDelete para eliminar el libro por su ID
+    const deletedBook = await Book.findByIdAndDelete(bookId);
+
+    if (!deletedBook) {
+      // Si no se encuentra el libro, respondemos con un error 404
+      return res.status(404).json({ error: 'Book not found' });
+    }
+
+    // Si el libro se eliminó correctamente, respondemos con un mensaje de éxito
     res.json({ message: 'Book deleted' });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({ error: 'Error deleting book' });
   } finally {
     // Desconexión de la base de datos
     mongoose.connection.close();
   }
-};
-
-module.exports = {
-  cutBook,
 };

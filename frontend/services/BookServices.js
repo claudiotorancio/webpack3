@@ -1,20 +1,14 @@
 
-class BookService {
-    constructor() {
-        this.baseURI =  '/api'
-    }
 
-    async getBooks() {
-        const URI = `${this.baseURI}/renderAllbooks`;
-        const res = await fetch(URI);
+export const getBooks = async () => {
+        const res = await fetch(`/api/renderAllbooks`);
         const books = await res.json();
         return books
     }
 
     
-    async postBook(book) {
-        const URI = `${this.baseURI}/createBook`;
-        const res = await fetch(URI, {
+export const postBook = async (book) => {
+        const res = await fetch(`/api/createBook`, {
             method:'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -29,14 +23,15 @@ class BookService {
        
     }
 
-    async deleteBook(bookId) {
+export const deleteBook = async (bookId) => {
         try {
-          const URI = `${this.baseURI}/cutBook/${bookId}`;
-          const res = await fetch(URI, {
+          const res = await fetch(`/api/cutBook/${bookId}`, {
             method: 'DELETE',
             headers: {
-              'Content-type': 'application/json'
-            }
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({bookId})
+          
           });
       
           if (!res.ok) {
@@ -54,7 +49,3 @@ class BookService {
         }
       }
       
-}
-
-export default BookService;
-

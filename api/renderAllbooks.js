@@ -1,11 +1,9 @@
 
+import mongoose from 'mongoose';
+import config from '../config/index.js';
+import Book from '../backend/models/Book.js';
 
-
-const mongoose = require('mongoose');
-const config = require('../config'); 
-const Book = require('../backend/models/Book.js');
-
-const renderAllbooks = async (req, res) => {
+export const renderAllbooks = async (req, res) => {
   try {
     // Conexión a la base de datos
     await mongoose.connect(config.MONGODB_URI, {
@@ -23,7 +21,3 @@ const renderAllbooks = async (req, res) => {
   }
 };
 
-module.exports = {
-    renderAllbooks,
-}
-  

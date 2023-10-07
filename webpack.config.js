@@ -1,51 +1,49 @@
 
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+import { fileURLToPath } from 'url';
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-const devMode = process.env.NODE_ENV !== 'production'
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
+const outputPath = path.join(__dirname, 'backend/public');
+const devMode = process.env.NODE_ENV !== 'production';
 
-module.exports = {
-
-    
-    entry: './frontend/app.js',
-    output: {
-        path: path.join(__dirname, 'backend/public'),
-        filename: 'js/bundle.js'
-        },
-        mode: 'production',
-
-        module: {
-            rules: [
-                {
-                    test: /\.css/,
-                    use: [
-                        devMode ? 'style-loader': MiniCssExtractPlugin.loader,
-                        'css-loader'
-                    ]
-                }
-            ]
-        },
-      
-        plugins: [
-            new HtmlWebpackPlugin({
-                template: './frontend/index.html',
-                minify: {
-                    collapseWhitespace: true,
-                    removeComments: true,
-                    removeRedundantAttributes: true,
-                    removeScriptTypeAttributes: true,
-                    removeStyleLinkTypeAttributes: true,
-                    useShortDoctype: true
-                }
-            }),
-            new MiniCssExtractPlugin({
-                filename: 'css/bundle.css'
-            })
+export default {
+  entry: './frontend/app.js',
+  output: {
+    path: outputPath,
+    filename: 'js/bundle.js',
+  },
+  mode: 'production',
+  module: {
+    rules: [
+      {
+        test: /\.css/,
+        use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
         ],
-
-        devtool: 'source-map'
-       
-}
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './frontend/index.html',
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/bundle.css',
+    }),
+  ],
+  devtool: 'source-map',
+};

@@ -1,4 +1,4 @@
-
+//prod.js
 
 const prodConfig = {
     
@@ -6,4 +6,4 @@ const prodConfig = {
  
 }
 
-module.exports = prodConfig
+export default prodConfig

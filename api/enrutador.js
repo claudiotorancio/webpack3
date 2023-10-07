@@ -1,20 +1,19 @@
-//routes/books.js
-
-const express = require('express');
-const router = express.Router();
-
-const {renderAllbooks} = require('./renderAllbooks.js');
-const {createBook} = require('./createBook');
-const {cutBook} = require('./cutBook');
 
 
+import { Router } from 'express';
 
 
-router.get('/api/renderAllbooks', renderAllbooks);
-
-router.post('/api/createBook', createBook);
-
-router.delete('/api/cutBook/:_id', cutBook);
+import { renderAllbooks } from './renderAllbooks.js';
+import { createBook } from './createBook.js';
+import { cutBook } from './cutBook.js';
 
 
-module.exports = router;
+const router = Router();
+
+router.delete(`/api/cutBook/:id`, cutBook);
+router.get(`/api/renderAllbooks`, renderAllbooks);
+router.post(`/api/createBook`, createBook);
+
+
+
+export default router;
