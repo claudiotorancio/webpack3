@@ -1,35 +1,47 @@
 
 
-export const baseURL = process.env.NODE_ENV === 'production'
+export const baseURL = process.env.NODE_ENV !== 'production'
   ? 'https://webpack3.vercel.app'
   : 'http://localhost:3000';
 
 export const getBooks = async () => {
-  const res = await fetch(`${baseURL}/api/renderAllbooks`);
-  const books = await res.json();
-  return books
+  try {
+    const res = await fetch(`${baseURL}/api/renderAllbooks`);
+
+    if (!res.ok) {
+      console.error('Error en la solicitud GET:', res.statusText);
+      throw new Error('Failed to get books');
+    }
+
+    const books = await res.json();
+    return books
+  } catch (error) {
+    console.error(error);
+  }
+
 }
 
 export const postBook = async (book) => {
- 
-  /*const bookData = new FormData()
-    bookData.append('image', image)
-    bookData.append('title', book.title)
-    bookData.append('author', book.author)
-    bookData.append('isbn', book.isbn)*/
+  try {
 
-  const res = await fetch(`${baseURL}/api/createBook`, {
-    method: 'POST',
-  headers: {
-      'Content-Type' : 'application/json'
-    },
-    body: JSON.stringify(book)
-   
-   
-   
-  })
-  const data = await res.json();
-  console.log(data)
+    const res = await fetch(`${baseURL}/api/createBook`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(book)
+    })
+
+    if (!res.ok) {
+
+      console.error('Error en la solicitud POST:', res.statusText);
+      throw new Error('Failed to post book');
+    }
+    const data = await res.json();
+    console.log(data)
+  } catch (error) {
+    console.error(error);
+  }
 
 }
 
@@ -40,7 +52,7 @@ export const deleteBook = async (bookId) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({bookId})
+      body: JSON.stringify({ bookId })
     });
 
     if (!res.ok) {
