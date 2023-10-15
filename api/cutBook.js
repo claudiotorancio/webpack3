@@ -1,9 +1,10 @@
 // cutBook.js
 
-
 import mongoose from 'mongoose';
 import MONGODB_URI from '../backend/config.js';
 import Book from '../backend/models/Book.js';
+
+
 
 export const cutBook = async (req, res) => {
   try {
@@ -17,6 +18,7 @@ export const cutBook = async (req, res) => {
 
     // Utilizamos findByIdAndDelete para eliminar el libro por su ID
     const deletedBook = await Book.findByIdAndDelete(bookId);
+  
 
     if (!deletedBook) {
       // Si no se encuentra el libro, respondemos con un error 404

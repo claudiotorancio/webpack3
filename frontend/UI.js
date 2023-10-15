@@ -2,17 +2,23 @@ import { getBooks, postBook, deleteBook } from './services/BookServices.js';
 import { format } from 'timeago.js';
 
 export const renderBooks = async () => {
+  
   const books = await getBooks();
+  console.log(books)
   const booksCardContainer = document.getElementById('books-cards');
   booksCardContainer.innerHTML = '';
 
   books.forEach(book => {
+   
     const div = document.createElement('div');
     div.className = '';
     div.innerHTML = `
       <div class="container p-4">
         <div class="card m-2">
           <div class="row justify-content-md-center">
+          <div class="col-md-4">
+          <img src="${book.image}" alt="" class="img-fluid"/>
+          </div>
             <div class="col-md-8">
               <div class="card-block px-2">
                 <h4 class="card-title">${book.title}</h4>
@@ -32,13 +38,14 @@ export const renderBooks = async () => {
 };
 
 export const addANewBook = async (book) => {
+
   await postBook(book);
   clearBookForm();
   renderBooks();
 };
 
 export const clearBookForm = () => {
-  document.getElementById('book-form').reset();
+  document.querySelector('[data-form').reset();
 };
 
 export const renderMessage = (message, colorMessage, secondsToRemove) => {
@@ -47,7 +54,7 @@ export const renderMessage = (message, colorMessage, secondsToRemove) => {
   div.appendChild(document.createTextNode(message));
 
   const container = document.querySelector('.col-md-4');
-  const bookForm = document.querySelector('#book-form');
+  const bookForm = document.querySelector('[data-form]');
 
   container.insertBefore(div, bookForm);
   setTimeout(() => {

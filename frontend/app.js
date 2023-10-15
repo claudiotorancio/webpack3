@@ -1,3 +1,4 @@
+
 import './styles/app.css';
 
 import { addANewBook, clearBookForm, deleteBookHandler, renderBooks, renderMessage } from './UI.js';
@@ -6,19 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
   renderBooks();
 });
 
-document.getElementById('book-form').addEventListener('submit', async (e) => {
+document.querySelector('[data-form]').addEventListener('submit', async (e) => {
   e.preventDefault();
+  
+  const title = document.querySelector('[data-title]').value;
+  const author = document.querySelector('[data-author]').value;
+  const isbn = document.querySelector('[data-isbn]').value;
+  const image = document.querySelector('[data-image]').value
+ 
 
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  const isbn = document.getElementById('isbn').value;
+const bookData = {
+  title,
+  author,
+  isbn,
+image
+}
+    /*const bookData = new FormData()
+    bookData.append('image', image)
+    bookData.append('title', title)
+    bookData.append('author', author)
+    bookData.append('isbn', isbn)*/
 
-  const formData = new FormData();
-  formData.append('title', title);
-  formData.append('author', author);
-  formData.append('isbn', isbn);
-
-  await addANewBook(formData);
+  await addANewBook(bookData);
   renderMessage('New book added', 'success', 3000);
   clearBookForm();
 });
