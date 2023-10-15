@@ -1,6 +1,6 @@
 
 
-export const baseURL = process.env.NODE_ENV !== 'production'
+export const baseURL = process.env.NODE_ENV === 'production'
   ? 'https://webpack3.vercel.app'
   : 'http://localhost:3000';
 
